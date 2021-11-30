@@ -17,6 +17,42 @@ Set adresse = '21 avenu de strasbourg'
 
 Where nom_prenom = 'Yasmine'
 
+4)
+
+DELETE
+
+From voiture
+
+Where marque = 'audi'
+
+5)
+
+ALTER TABLE client
+
+DROP code_clients
+
+6)
+
+SELECT marque
+
+from voiture
+
+where upper(marque) like'T%'
+
+UNION
+
+SELECT nom_prenom
+
+From clients
+
+Where upper(nom_prenom) like 'R%'
+
+7)
+SELECT V.marque,L.code_client
+From voiture V
+Join location L ON (V.immatriculation = L.immatriculation)
+Where L code_client ='t200'
+
 
 8)
 SELECT client.nom_prenom, client.adresse
