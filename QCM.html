@@ -1,0 +1,198 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+	
+	function nobelong(a,list)
+	{
+	for(i = 0;list[i];i++)
+		if(a == list[i])
+			return 1;
+	return 0;
+	}
+	function check(idname,list)
+	{
+	document.getElementById(idname).value = "correct";
+	for(var i=0;list[1][i];i++)
+	{
+		if(list[0][list[1][i]] == false){
+			document.getElementById(idname).value = "incorrect";
+		}
+	}
+	for(var a = 0;list[a];a++)
+		if(list[0][a] == true && nobelong(a,list[1]) == 0){
+			document.getElementById(idname).value = "incorrect";
+		}
+	if(document.getElementById(idname).value == "incorrect"){
+		document.getElementById(idname).className = "er";
+		return 0;
+	}
+	else
+		document.getElementById(idname).className = "cache";
+		return 1;
+	}
+
+	function corection()
+		{
+			var a1 =document.getElementById("q1-1").checked;
+			var a2 =document.getElementById("q1-2").checked;
+			var a3 =document.getElementById("q1-3").checked;
+			let q1 =[[a1,a2,a3],[2]];
+
+			var b1 =document.getElementById("q2-1").checked;
+			var b2 =document.getElementById("q2-2").checked;
+			var b3 =document.getElementById("q2-3").checked;
+			let q2 =[[b1,b2,b3],[2]];
+
+			var c1 =document.getElementById("q3-1").checked;
+			var c2 =document.getElementById("q3-2").checked;
+			var c3 =document.getElementById("q3-3").checked;
+			let q3 =[[c1,c2,c3],[2]];
+
+			var d1 =document.getElementById("q4-1").checked;
+			var d2 =document.getElementById("q4-2").checked;
+			var d3 =document.getElementById("q4-3").checked;
+			let q4 =[[0,d2,d3],[1]];
+
+			var e1 =document.getElementById("q5-1").checked;
+			var e2 =document.getElementById("q5-2").checked;
+			var e3 =document.getElementById("q5-3").checked;
+			let q5 =[[e1,e2,e3],[2]];
+
+			var f1 =document.getElementById("q6-1").checked;
+			var f2 =document.getElementById("q6-2").checked;
+			var f3 =document.getElementById("q6-3").checked;
+			let q6 =[[f1,f2,f3],[2]];
+
+			var g1 =document.getElementById("q7-1").checked;
+			var g2 =document.getElementById("q7-2").checked;
+			var g3 =document.getElementById("q7-3").checked;
+			let q7 =[[g1,g2,g3],[1]];
+
+			var h1 =document.getElementById("q8-1").checked;
+			var h2 =document.getElementById("q8-2").checked;
+			var h3 =document.getElementById("q8-3").checked;
+			let q8 =[[h1,h2,h3],[1]];
+
+			var i1 =document.getElementById("q9-1").checked;
+			var i2 =document.getElementById("q9-2").checked;
+			var i3 =document.getElementById("q9-3").checked;
+			let q9 =[[i1,i2,i3],[1]];
+
+			var j1 =document.getElementById("q10-1").checked;
+			var j2 =document.getElementById("q10-2").checked;
+			var j3 =document.getElementById("q10-3").checked;
+			let q10 =[[j1,j2,j3],[2]];
+			var some = 0;
+
+			some += check("rep1",q1);
+			some += check("rep2",q2);
+			some += check("rep3",q3);
+			some += check("rep4",q4);
+			some += check("rep5",q5);
+			some += check("rep6",q6);
+			some += check("rep7",q7);
+			some += check("rep8",q8);
+			some += check("rep9",q9);
+			some += check("rep10",q10);
+
+			alert("votre score est de "+some + "/10")
+
+		}
+
+	</script>
+</head>
+<body>
+
+<form>
+<h1>Questionnaire sous forme de QCM.Les questions peuvent comporter une ou plusieurs bonne réponses.</h1>
+
+<h2>Question 1:</h2>
+	<h2>De combien de joueurs se compose une équipe de football ?</h2><input type="text" readonly="readonly" id="rep1" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q1-1" class="q1">8 Joueurs</h3></li>
+	<li><h3>2)<input type="checkbox" id="q1-2" class="q1">10 Joueurs</h3></li>
+	<li><h3>3)<input type="checkbox" id="q1-3" class="q2">11 Joueurs</h3></li>
+	</ul>
+<h2>Question 2:</h2>
+	<h2>Lorsque deux équipes sont à égalité après les prolongations, que se passe-t-il ?</h2><input type="text" readonly="readonly" id="rep2" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q2-1" class="q2">Rien</h3></li>
+	<li><h3>2)<input type="checkbox" id="q2-2" class="q2">Fin du match</h3></li>
+	<li><h3>3)<input type="checkbox" id="q2-3" class="q2">Tir au but</h3></li>
+	</ul>
+
+<h2>Question 3:</h2>
+	<h2>Combien de minutes dure une mi-temps dans un match de foot ?</h2><input type="text" readonly="readonly" id="rep3" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q3-1" class="q3">40 Minutes</h3></li>
+	<li><h3>2)<input type="checkbox" id="q3-2" class="q3">50 Minutes</h3></li>
+	<li><h3>3)<input type="checkbox" id="q3-3" class="q3">45 Minutes</h3></li>
+	</ul>
+
+<h2>Question 4:</h2>
+	<h2>Quel club a remporté la Ligue des champions de 2017 ?</h2><input type="text" readonly="readonly" id="rep4" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q4-1" class="q4">FC Barcelone</h3></li>
+	<li><h3>2)<input type="checkbox" id="q4-2" class="q4">Real Madrid</h3></li>
+	<li><h3>3)<input type="checkbox" id="q4-3" class="q4">OM</h3></li>
+	</ul>
+
+<h2>Question 5:</h2>
+	<h2>Quel numéro portait Zinedine Zidane dans l'équipe de France ?</h2><input type="text" readonly="readonly" id="rep5" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q5-1" class="q5">Le 7</h3></li>
+	<li><h3>2)<input type="checkbox" id="q5-2" class="q5">Le 14</h3></li>
+	<li><h3>3)<input type="checkbox" id="q5-3" class="q5">Le 10</h3></li>
+	</ul>
+
+<h2>Question 6:</h2>
+	<h2>Quelle équipe a été cinq fois championne du monde (jusqu'en 2006) ?</h2><input type="text" readonly="readonly" id="rep6" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q6-1" class="q6">France</h3></li>
+	<li><h3>2)<input type="checkbox" id="q6-2" class="q6">Allemagne</h3></li>
+	<li><h3>3)<input type="checkbox" id="q6-3" class="q6">Bresil</h3></li>
+	</ul>
+
+<h2>Question 7:</h2>
+	<h2>Laquelle de ces équipes ne participait pas à la Coupe du monde 2006 ?</h2><input type="text" readonly="readonly" id="rep7" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q7-1" class="q7">Cote d'ivoire</h3></li>
+	<li><h3>2)<input type="checkbox" id="q7-2" class="q7">Cameroun</h3></li>
+	<li><h3>3)<input type="checkbox" id="q7-3" class="q7">Italie</h3></li>
+	</ul>
+
+<h2>Question 8:</h2>
+	<h2>Qui est le capitaine de l'équipe d'Angleterre en 2006 ?</h2><input type="text" readonly="readonly" id="rep8" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q8-1" class="q8">Beckham</h3></li>
+	<li><h3>2)<input type="checkbox" id="q8-2" class="q8">Rooney</h3></li>
+	<li><h3>3)<input type="checkbox" id="q8-3" class="q8">Lampard</h3></li>
+	</ul>
+
+<h2>Question 9:</h2>
+	<h2>Où se déroulait la Coupe du monde 2002 ?</h2><input type="text" readonly="readonly" id="rep9" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" id="q9-1" class="q9">Belgique/Pays-Bas</h3></li>
+	<li><h3>2)<input type="checkbox" id="q9-2" class="q9">Corée du Sud/Japon</h3></li>
+	<li><h3>3)<input type="checkbox" id="q9-3" class="q9">Autriche/Suisse</h3></li>
+	</ul>
+
+<h2>Question 10:</h2>
+	<h2>Dans quel groupe se trouvait la France durant la Coupe du monde 2014 ?</h2><input type="text" readonly="readonly" id="rep10" class="cache">
+	<ul>
+	<li><h3>1)<input type="checkbox" value="1" id="q10-1" class="q10">Groupe E</h3></li>
+	<li><h3>2)<input type="checkbox" value="2" id="q10-2" class="q10">Groupe A</h3></li>
+	<li><h3>3)<input type="checkbox" value="3" id="q10-3" class="q10">Groupe H</h3></li>
+	</ul>
+
+	<input type="button" onclick="corection()" name="correction" value="Correction">
+	<input type="reset" name="reset" value="Effacer">
+	<input type="button" name="corriger" onclick="location.href='corrigé.html'" value="Corrigé">
+</form>
+
+</body>
+</html>
