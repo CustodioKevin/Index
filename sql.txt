@@ -1,0 +1,150 @@
+1
+
+CREATE TABLE réparation
+(
+    Num_reparation INT PRIMARY KEY NOT NULL,
+    date_reparation VARCHAR(40),
+    durée_reparation VARCHAR(40),
+    cout_reparation VARCHAR(40),
+    responsable VARCHAR(40),
+    immatriculation VARCHAR(40)
+   
+)
+
+2
+
+SELECT * 
+FROM voiture
+LIMIT 0 , 30
+
+3
+
+SELECT * 
+FROM voiture
+ORDER BY Immatriculation
+LIMIT 0 , 30
+
+4
+
+SELECT * 
+FROM voiture
+ORDER BY Marque, modele
+LIMIT 0 , 30
+
+5
+
+SELECT * 
+FROM voiture
+WHERE Marque = 'Tesla'
+LIMIT 0 , 30
+
+6
+
+SELECT LOWER(Marque),LOWER(Modele)
+FROM voiture
+WHERE Marque = 'Tesla'
+
+7
+
+SELECT UPPER(Marque),UPPER(Modele)
+FROM voiture
+WHERE Marque = 'Tesla'
+
+8
+
+ALTER TABLE voiture
+ADD prix_achat VARCHAR(40)
+
+9
+
+select *
+From voiture
+Where prix_achat <20000 and prix_achat>15000
+
+Ou
+
+select *
+From voiture
+Where prix_achat between 15000 and 20000;
+
+10
+
+SELECT AVG( kilometrage ) 
+FROM voiture
+WHERE marque = 'mercedes'
+
+11
+
+SELECT COUNT(*) 
+FROM voiture
+WHERE marque = 'Tesla'
+
+12
+
+SELECT marque, COUNT(*)
+FROM voiture
+GROUP BY marque
+
+13
+
+SELECT MAX (kilometrage
+FROM voiture
+
+
+14
+
+SELECT marque, modele, immatriculation
+FROM voiture
+WHERE kilometrage = ( SELECT MAX( kilometrage ) FROM voiture )
+
+
+15
+
+SELECT marque, modele, immatriculation
+FROM voiture
+WHERE kilometrage = ( SELECT MIN( kilometrage ) FROM voiture ) 
+
+16
+
+SELECT *
+From client
+where ville='paris' Or ville='Nice'
+
+ou
+
+SELECT *
+From client
+where ville='paris' Or 'Nice'
+
+17
+
+SELECT SUM(prix_achat)
+From voiture
+where marque='mercedes'
+
+18
+
+SELECT code_client,ville
+From client
+where nom_prenom like 'A%'
+
+
+19
+
+INSERT INTO voiture(Immatriculation,Marque,Modele,Kilometrage,Carburant,couleur,nbr_place,nbr_porte,etat,prix_achat)VALUES
+('FF 2000 AA','Ferrari','Enzo','12000','Essence','Rouge','2','3','Bon','85000'),
+('GG 2000 AA','McLaren','F1','18000','Essence','Blanche','2','3','Bon','45000'),
+('HH 2000 AA','Porsche','Cayenne','18000','Diesel','Noire','5','5','Trés bon','35000')
+
+20
+
+INSERT INTO numloc(id_location,durée_location,date_location,prix_location,code_client,immatriculation)VALUES
+('LOC300','7','2021-11-07','70','T205','AA 2000 TT'),
+('LOC302','7','2021-11-08','90','T207','BB 2000 TT')
+
+
+
+
+
+
+
